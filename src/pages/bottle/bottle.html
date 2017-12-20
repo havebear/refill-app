@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar color="bg-navbar">
+    <ion-title>漂流瓶</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- 基础层 -->
+  <div class="home-main">
+    <div class="home-main-top">
+      <!-- <img class="home-main-top-bg" src="../../assets/imgs/home_bg.jpeg" alt=""> -->
+    </div>
+    <div class="home-main-bottom">
+      <ion-grid>
+        <ion-row>
+          <ion-col (click)="throwBottle()">
+            <ion-icon ios="logo-angular" md="logo-android"></ion-icon>
+            扔瓶子
+          </ion-col>
+          <ion-col (click)="pickUpBottle()">
+            <ion-icon ios="logo-google" md="logo-android"></ion-icon>
+            捞瓶子
+          </ion-col>
+          <ion-col>
+            <ion-icon ios="logo-github" md="logo-android"></ion-icon>
+            我的瓶子
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+  <!-- 捞瓶子弹出层 -->
+  <div *ngIf="isPickUp" class="home-pickup-layer">
+  </div>
+  <!-- 扔瓶子弹出层 -->
+  <div *ngIf="isThrow" class="home-throw-layer">
+    扔瓶子
+  </div>
+</ion-content>
