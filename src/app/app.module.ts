@@ -7,6 +7,10 @@ import { PersonPage } from '../pages/person/person';
 import { FriendPage } from '../pages/friend/friend';
 import { BottlePage } from '../pages/bottle/bottle';
 import { TabsPage } from '../pages/tabs/tabs';
+import { LoginPage } from '../pages/login/login';
+import { RegistPage } from '../pages/regist/regist';
+import { MyBottlePage } from '../pages/my-bottle/my-bottle';
+import { ChatRoomPage} from '../pages/chat-room/chat-room';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -17,12 +21,16 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     FriendPage,
     PersonPage,
     BottlePage,
-    TabsPage
+    TabsPage,
+    LoginPage,
+    RegistPage,
+    MyBottlePage,
+    ChatRoomPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp, {
-      // mode: 'ios'
+      tabsHideOnSubPages: 'true',  // ionic3隐藏全部子页面tabs
     })
   ],
   bootstrap: [IonicApp],
@@ -31,7 +39,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     FriendPage,
     PersonPage,
     BottlePage,
-    TabsPage
+    TabsPage,
+    LoginPage,
+    RegistPage,
+    MyBottlePage,
+    ChatRoomPage
   ],
   providers: [
     StatusBar,
