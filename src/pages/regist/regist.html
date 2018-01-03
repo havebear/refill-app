@@ -16,23 +16,18 @@
 <ion-content padding>
   <ion-list no-lines>
     <ion-item>
-      <ion-label floating>电话</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label floating>电话</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-label floating>用户名</ion-label>
+      <ion-input [(ngModel)]="username" type="text"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>设置密码</ion-label>
-      <ion-input type="password"></ion-input>
+      <ion-input [(ngModel)]="password" type="password"></ion-input>
     </ion-item>
 
   </ion-list>
 
   <div padding>
-    <button ion-button color="primary" block>注册</button>
+    <button (click)="onRegister()" ion-button color="primary" block>注册</button>
   </div>
 </ion-content>
