@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { MyBottlePage } from '../my-bottle/my-bottle'
 
 @Component({
   selector: 'page-bottle',
@@ -16,12 +17,16 @@ export class BottlePage {
 
   }
 
-  pickUpBottle(){
+  pickUpBottle() {
     this.isPickUp = true;
   }
 
-  throwBottle(){
+  throwBottle() {
     this.isThrow = true;
+  }
+
+  toMyBottle() {
+    this.navCtrl.push(MyBottlePage);
   }
 
 }
