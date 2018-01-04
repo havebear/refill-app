@@ -17,12 +17,12 @@
   <ion-list no-lines>
     <ion-item>
       <ion-label floating>用户名</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input [(ngModel)]="username" type="text"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>密码</ion-label>
-      <ion-input type="password"></ion-input>
+      <ion-input [(ngModel)]="password" type="password"></ion-input>
     </ion-item>
 
   </ion-list>
@@ -30,6 +30,6 @@
   <div>忘记密码</div>
 
   <div padding>
-    <button ion-button color="primary" block>登录</button>
+    <button (click)="onLogin()" ion-button color="primary" block>登录</button>
   </div>
 </ion-content>
