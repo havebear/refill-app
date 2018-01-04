@@ -15,25 +15,31 @@
         <ion-row>
           <ion-col (click)="throwBottle()">
             <!-- <ion-icon ios="logo-angular" md="logo-android"></ion-icon> -->
-            <span class="iconfont icon-addition_fill"></span>
+            <span class="iconfont icon-brush"></span>
+            <span>扔瓶子</span>
           </ion-col>
           <ion-col (click)="pickUpBottle()">
             <!-- <ion-icon ios="logo-google" md="logo-android"></ion-icon> -->
-            <span class="iconfont icon-addition_fill"></span>
+            <span class="iconfont icon-select"></span>
+            <span>捞瓶子</span>
           </ion-col>
-          <ion-col>
+          <ion-col (click)="toMyBottle()">
             <!-- <ion-icon ios="logo-github" md="logo-android"></ion-icon> -->
-            <span class="iconfont icon-addition_fill"></span>
+            <span class="iconfont icon-mail"></span>
+            <span>瓶子</span>
           </ion-col>
         </ion-row>
       </ion-grid>
     </div>
   </div>
   <!-- 捞瓶子弹出层 -->
-  <div *ngIf="isPickUp" class="home-pickup-layer">
+  <div *ngIf="isPickUp" class="home-layer">
   </div>
   <!-- 扔瓶子弹出层 -->
-  <div *ngIf="isThrow" class="home-throw-layer">
-    扔瓶子
+  <div *ngIf="isThrow" class="home-layer">
+    <div class="home-layer-box">
+      
+    </div>
+    <div class="home=layer-bg"></div>
   </div>
 </ion-content>

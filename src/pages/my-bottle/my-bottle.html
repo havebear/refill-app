@@ -4,15 +4,49 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<ion-header color="bg-navbar">
 
-  <ion-navbar>
-    <ion-title>myBottle</ion-title>
+  <ion-navbar no-border-bottom no-padding-bottom>
+    <ion-title>瓶子</ion-title>
   </ion-navbar>
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="pet">
+      <ion-segment-button value="kittens">
+        捞
+      </ion-segment-button>
+      <ion-segment-button value="puppies">
+        扔
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <div [ngSwitch]="pet">
 
+    <ion-list *ngSwitchCase="'puppies'">
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="assets/imgs/bottle.png">
+        </ion-avatar>
+        <!-- <h2>来自200m外的漂流瓶</h2> -->
+        <p>春眠不觉晓，处处蚊子咬</p>
+        <ion-note item-end>3:43 pm</ion-note>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'kittens'">
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="assets/imgs/bottle.png">
+        </ion-avatar>
+        <!-- <h2>来自2km外的漂流瓶</h2> -->
+        <p>hi，认识一下呗</p>
+        <ion-note item-end>3:43 pm</ion-note>
+      </ion-item>
+    </ion-list>
+    
+  </div>
 </ion-content>
