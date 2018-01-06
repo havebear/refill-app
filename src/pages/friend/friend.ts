@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
+import { ChatRoomPage } from '../chat-room/chat-room'
+
 @Component({
   selector: 'page-friend',
   templateUrl: 'friend.html'
@@ -11,7 +13,8 @@ export class FriendPage {
 
   }
 
-  alertMsg() {
-    alert('点击被触发');
+  toChatRoom() {
+    // alert('点击被触发');
+    this.navCtrl.push(ChatRoomPage);
   }
 }
