@@ -6,6 +6,7 @@ import { MyApp } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { Interceptor } from '../provider/Interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 import { PersonPage } from '../pages/person/person';
 import { FriendPage } from '../pages/friend/friend';
@@ -16,6 +17,9 @@ import { RegistPage } from '../pages/regist/regist';
 import { MyBottlePage } from '../pages/my-bottle/my-bottle';
 import { ChatRoomPage } from '../pages/chat-room/chat-room';
 import { SendBottlePage } from '../pages/send-bottle/send-bottle';
+
+import  LocalStorageService from '../provider/local-storage.service'
+import {Community} from '../provider/community'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -58,6 +62,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     { provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true },
+    LocalStorageService,
+    Community,
   ]
 })
 export class AppModule { }

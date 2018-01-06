@@ -24,7 +24,8 @@ export class LoginPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public toastCtrl: ToastController) {
+    public toastCtrl: ToastController,
+    private com:Community) {
   }
 
   ionViewDidLoad() {
@@ -45,8 +46,7 @@ export class LoginPage {
       alert("用户名或者密码不能为空");
       return;
     }
-    let com = new Community;
-    com.login({ username: this.username, password: this.password }).then(
+    this.com.login({ username: this.username, password: this.password }).then(
       () => {
         alert("登录成功");
         this.clickFlag = false;

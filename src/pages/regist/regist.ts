@@ -19,7 +19,7 @@ export class RegistPage {
   username:string="";
   password:string="";
   clickFlag:boolean = false;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private com:Community) {
   }
 
   ionViewDidLoad() {
@@ -36,12 +36,11 @@ export class RegistPage {
       alert("用户名或者密码不能为空");
       return;
     }
-    let com = new Community;
-    com.register({username:this.username,password:this.password}).then(()=>{
+    this.com.register({username:this.username,password:this.password}).then(()=>{
     alert("注册成功");
     this.clickFlag = false;
     },(reason)=>{
-      alert(reason.description);
+      alert(reason);
       this.clickFlag = false;
     });
   }
