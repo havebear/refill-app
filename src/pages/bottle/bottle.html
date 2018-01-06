@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="bg-navbar">
-    <ion-title>漂流瓶</ion-title>
+    <ion-title>笔芯</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -13,7 +13,7 @@
     <div class="home-main-bottom">
       <ion-grid>
         <ion-row>
-          <ion-col (click)="throwBottle()">
+          <ion-col (click)="openSendBottleModal()">
             <!-- <ion-icon ios="logo-angular" md="logo-android"></ion-icon> -->
             <span class="iconfont icon-brush"></span>
             <span>扔瓶子</span>
@@ -34,12 +34,5 @@
   </div>
   <!-- 捞瓶子弹出层 -->
   <div *ngIf="isPickUp" class="home-layer">
-  </div>
-  <!-- 扔瓶子弹出层 -->
-  <div *ngIf="isThrow" class="home-layer">
-    <div class="home-layer-box">
-      
-    </div>
-    <div class="home=layer-bg"></div>
   </div>
 </ion-content>
