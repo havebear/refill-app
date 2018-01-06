@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { RegistPage } from '../regist/regist';
-import {Community} from '../../provider/community'
+import { Community } from '../../provider/community'
 import { compareDates } from 'ionic-angular/util/datetime-util';
 /**
  * Generated class for the LoginPage page.
@@ -17,11 +17,14 @@ import { compareDates } from 'ionic-angular/util/datetime-util';
 })
 export class LoginPage {
 
-  username:string = "";
-  password:string = "";
-  
-  clickFlag:boolean = false;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  username: string = "";
+  password: string = "";
+
+  clickFlag: boolean = false;
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public toastCtrl: ToastController) {
   }
 
   ionViewDidLoad() {
@@ -32,26 +35,26 @@ export class LoginPage {
     this.navCtrl.push(RegistPage);
   }
 
-  onLogin(){
-    if(this.clickFlag == true){
+  onLogin() {
+    if (this.clickFlag == true) {
       return;
     }
 
     this.clickFlag = true;
-    if(this.username === "" || this.password === ""){
+    if (this.username === "" || this.password === "") {
       alert("用户名或者密码不能为空");
       return;
     }
     let com = new Community;
-    com.login({username:this.username,password:this.password}).then(
-      ()=>{
+    com.login({ username: this.username, password: this.password }).then(
+      () => {
         alert("登录成功");
         this.clickFlag = false;
-    },
-      (reason)=>{
-      alert(reason.description);
-      this.clickFlag = false;
-     });
+      },
+      (reason) => {
+        alert(reason.description);
+        this.clickFlag = false;
+      });
 
   }
 

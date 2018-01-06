@@ -1,0 +1,43 @@
+page-send-bottle {
+  .send-bottle-header {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.6rem;
+    img {
+      width: 3rem;
+      margin-right: 5px;
+    }
+  }
+  .send-bottle-header-label {
+    display: flex;
+    align-items: center;
+  }
+  .send-bottle-header-close {
+    padding: 10px 0 10px 10px;
+    display: flex;
+    align-items: center;
+    // color: #999;
+    .iconfont {
+      font-size: 2rem;
+    }
+  }
+  .send-bottle-content {
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    // box-shadow: 0 4px 16px #999;
+    border: 1px dashed #333;
+    border-radius: 6px;
+    textarea {
+      width: 100%;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      resize: none;
+      font-size: 1.6rem;
+      color: #333;
+    }
+  }
+}

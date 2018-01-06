@@ -1,7 +1,7 @@
 page-bottle {
   position: relative;
   overflow: hidden;
-  .home-main{
+  .home-main {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -11,13 +11,13 @@ page-bottle {
     color: #fff;
     background: url('../assets/imgs/home_bg_2.jpeg') no-repeat center;
     background-size: cover;
-    .home-main-top{
+    .home-main-top {
       flex: 1;
     }
-    .home-main-top-bg{
+    .home-main-top-bg {
       height: 100%;
     }
-    .home-main-bottom{
+    .home-main-bottom {
       padding: 1rem 0;
       font-size: 1.6rem;
       color: rgba(255, 255, 255, 0.8);
@@ -28,13 +28,13 @@ page-bottle {
       }
       ion-col {
         display: flex;
-        justify-content:center;
+        justify-content: center;
         align-items: center;
         text-align: center;
       }
     }
   }
-  .home-layer{
+  .home-layer {
     position: absolute;
     top: 0;
     left: 0;
@@ -42,5 +42,17 @@ page-bottle {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.4);
     transition: all 0.4s;
+  }
+  .home-layer-box-content {
+    background-color: #fff;
+    border-radius: 6px;
+    textarea {
+      width: 100%;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      resize: none;
+      font-size: 1.6rem;
+    }
   }
 }

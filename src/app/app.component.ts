@@ -9,7 +9,7 @@ declare var JMessage: any
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = TabsPage;
+  rootPage: any = TabsPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
@@ -17,7 +17,11 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
-      JMessage.init({ isOpenMessageRoaming: false })
+      try {
+        JMessage.init({ isOpenMessageRoaming: false });
+      } catch (e) {
+        console.log('极光推送暂不支持桌面浏览器');
+      }
     });
   }
 }

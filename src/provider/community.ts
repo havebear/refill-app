@@ -1,30 +1,28 @@
 declare var JMessage: any
 
-export class Community
-{
+export class Community {
 
-    register(user){
-       return new Promise((resolve,reject)=>{
-           JMessage.register(user,
-        ()=>{
-            resolve();
-        },
-        (error)=>{
-            reject(error);
-        }
-        )
-       });
+    register(user) {
+        return new Promise((resolve, reject) => {
+            JMessage.register(user,
+                () => {
+                    resolve();
+                },
+                (error) => {
+                    reject(error);
+                }
+            )
+        });
     }
 
-    login(user){
-        return new Promise((resolv,reject)=>{
+    login(user) {
+        return new Promise((resolv, reject) => {
             JMessage.login(
                 user,
-                () =>{
-                resolv();
+                () => {
+                    resolv();
                 },
-                (error) =>
-                {
+                (error) => {
                     reject(error);
                 }
             )
@@ -33,55 +31,54 @@ export class Community
         });
     }
 
-    logout(){
-        return new Promise((resolv)=>{
+    logout() {
+        return new Promise((resolv) => {
             JMessage.logout();
             resolv();
         });
     }
 
-    getMyinfo()
-    {
-        return new Promise((resolv,reject)=>{
+    getMyinfo() {
+        return new Promise((resolv, reject) => {
             JMessage.getMyInfo(
-                (myinfo)=>{
+                (myinfo) => {
                     resolv(myinfo);
                 },
-                (error)=>{
+                (error) => {
                     reject(error);
                 }
             );
         }
-           );
+        );
     }
 
-    getUserInfo(userid){
+    getUserInfo(userid) {
 
-        return new Promise((resolv,reject)=>{
+        return new Promise((resolv, reject) => {
             JMessage.getUserInfo(
                 userid
                 ,
-                (userinfo)=>{
+                (userinfo) => {
                     resolv(userinfo);
-    
+
                 },
-                (error)=>{
+                (error) => {
                     reject(error);
                 }
             )
-            
+
         });
 
     }
 
-    updateMyPassword(oldpass,newpass){
+    updateMyPassword(oldpass, newpass) {
 
-        return new Promise((resolve,reject)=>{
-            JMessage.updateMyPassword({oldPwd:oldpass,newPwd:newpass},
-                ()=>{
+        return new Promise((resolve, reject) => {
+            JMessage.updateMyPassword({ oldPwd: oldpass, newPwd: newpass },
+                () => {
                     resolve();
                 },
-                (error)=>{
+                (error) => {
                     reject(error);
                 }
             )
