@@ -5,6 +5,7 @@ import LocalStorageService from '../provider/local-storage.service'
 import {Injectable} from "@angular/core";
 import { resolveDefinition } from '@angular/core/src/view/util';
 
+import {UserInfo} from '../provider/userinfo.service'
 declare var JMessage: any
 
 
@@ -42,7 +43,7 @@ export class Community {
                              resolve();
                             })
                          .catch(error=>{
-                             reject(error);
+                             reject("error");
                             })
                 },
                 (error) => {
@@ -66,10 +67,19 @@ export class Community {
             this.http.get(this.userGetMeInfo).toPromise()
             .then(response=>{
                 //alert(response["id"]);
-                resolve(response);
+                let userinfo = new UserInfo;
+                userinfo.createTime = response['createTime'];
+                userinfo.email = response['email'];
+                userinfo.id = response['id'];
+                userinfo.lastLonginTime = response['lastLonginTime'];
+                userinfo.nickname = response['nickname'];
+                userinfo.phone = response['phone'];
+                userinfo.username = response['username']
+                resolve(userinfo);
             })
             .catch(error=>{
-                reject(error);
+                
+                reject();
             })
 
         }
@@ -122,6 +132,34 @@ export class Community {
                 }
             )
         });
+    }
+
+
+    createSingleConversation(username){
+        return new Promise((resolve,reject)=>{
+            JMessage.createConversation(
+                {type:"single",username:username},
+                (conversation)=>{
+                    resolve(conversation);
+                },
+                (error)=>{
+                    reject(error.description);
+                }
+            );
+
+        });
+    }
+
+    //第一次发消息，先调用createSingleConversation
+    sendTextMessageByUser(username:string,content:string){
+        return new Promise((resolve,reject)=>{
+            JMessage.sendTextMessage({type:"single",username:username,text:content},(message)=>{
+                resolve();
+            },(error)=>{
+                reject(error.description);
+            });
+        });
+
     }
 
 
