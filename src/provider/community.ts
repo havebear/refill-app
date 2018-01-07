@@ -14,6 +14,8 @@ export class Community {
     userRegisterAPI:string  = "/users";
     userLoginAPI:string = "/users/token";
     userGetMeInfo:string = "/user";
+    userBottleApi:string = "/driftingbottles";
+    
 
     constructor(private http:HttpClient,private storage:LocalStorageService) {}
 
@@ -24,7 +26,7 @@ export class Community {
                 resolve();
             })
             .catch(error=>{
-                reject(error['error']);
+                reject(error);
             })
         });
     }
@@ -63,12 +65,30 @@ export class Community {
         return new Promise((resolve, reject) => {
             this.http.get(this.userGetMeInfo).toPromise()
             .then(response=>{
-                alert(response["id"]);
+                //alert(response["id"]);
                 resolve(response);
+            })
+            .catch(error=>{
+                reject(error);
             })
 
         }
         );
+    }
+
+    thowBottle(content){
+        return new Promise((resolve,reject)=>{
+            this.http.post(this.userBottleApi,content).toPromise()
+            .then(response=>{
+                //alert(response["id"]);
+                resolve(response);
+            })
+            .catch(response=>{
+                //alert(response["id"]);
+                reject(response);
+            })
+
+        });
     }
 
     getUserInfo(userid) {

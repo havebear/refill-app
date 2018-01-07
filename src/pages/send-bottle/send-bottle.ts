@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, ToastController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
-
+import {Community} from '../../provider/community'
 /**
  * Generated class for the SendBottlePage page.
  *
@@ -29,7 +29,8 @@ export class SendBottlePage {
     public navParams: NavParams,
     public viewCtrl: ViewController,
     public http: HttpClient,
-    public toastCtrl: ToastController) {
+    public toastCtrl: ToastController,
+    private com:Community) {
   }
 
   /**
@@ -46,6 +47,14 @@ export class SendBottlePage {
    * @memberof SendBottlePage
    */
   submit() {
+    this.com.thowBottle( { content: this.submitData.content }).then(()=>{
+      this.presentToast('扔出去啦~');
+      this.closeModal();
+    },
+  (error)=>{
+    this.presentToast('没扔出去，在试试~');
+  });
+    /*
     this.http.post('driftingbottles', { content: this.submitData.content }
     ).subscribe(
       res => {
@@ -56,6 +65,7 @@ export class SendBottlePage {
         this.presentToast('没扔出去，在试试~');
       }
       )
+      */
   }
 
   /**
