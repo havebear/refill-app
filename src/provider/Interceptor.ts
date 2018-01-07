@@ -5,8 +5,8 @@ import { Observable } from 'rxjs/Observable';
 import LocalStorageService from '../provider/local-storage.service'
 @Injectable()
 export class Interceptor implements HttpInterceptor {
-  
-  constructor(private storage:LocalStorageService) {}
+
+  constructor(private storage: LocalStorageService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     console.log('已经被拦截处理了');
@@ -14,9 +14,8 @@ export class Interceptor implements HttpInterceptor {
     const url: string = baseUrl + req.url;
     let token: string = '';
     console.log(url);
-    let tokentemp:string = this.storage.get("token");
-    if(tokentemp != null)
-    {
+    let tokentemp: string = this.storage.get("token");
+    if (tokentemp != null) {
       token = tokentemp
     }
     // 由于请求都是不可变的，所以不能直接修改他们

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ToastController } from 'ionic-angular';
+import { HttpClient } from '@angular/common/http';
 
 /**
  * Generated class for the SendBottlePage page.
@@ -26,7 +27,9 @@ export class SendBottlePage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public viewCtrl: ViewController) {
+    public viewCtrl: ViewController,
+    public http: HttpClient,
+    public toastCtrl: ToastController) {
   }
 
   /**
@@ -43,7 +46,29 @@ export class SendBottlePage {
    * @memberof SendBottlePage
    */
   submit() {
-    
+    this.http.post('driftingbottles', { content: this.submitData.content }
+    ).subscribe(
+      res => {
+        this.presentToast('扔出去啦~');
+        this.closeModal();
+      },
+      err => {
+        this.presentToast('没扔出去，在试试~');
+      }
+      )
+  }
+
+  /**
+   * 
+   * @param msg 提示消息
+   */
+  presentToast(msg: string = ' ') {
+    let toast = this.toastCtrl.create({
+      message: msg,
+      position: 'top',
+      duration: 3000
+    });
+    toast.present();
   }
 
   ionViewDidLoad() {

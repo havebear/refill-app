@@ -6,7 +6,7 @@ page-send-bottle {
     align-items: center;
     font-size: 1.6rem;
     img {
-      width: 3rem;
+      width: 2rem;
       margin-right: 5px;
     }
   }
@@ -17,8 +17,8 @@ page-send-bottle {
   .send-bottle-header-close {
     padding: 10px 0 10px 10px;
     display: flex;
-    align-items: center;
-    // color: #999;
+    align-items: center; 
+    color: #333;
     .iconfont {
       font-size: 2rem;
     }
@@ -26,8 +26,7 @@ page-send-bottle {
   .send-bottle-content {
     padding: 10px;
     margin-bottom: 20px;
-    background-color: #fff;
-    // box-shadow: 0 4px 16px #999;
+    background-color: #fff; // box-shadow: 0 4px 16px #999;
     border: 1px dashed #333;
     border-radius: 6px;
     textarea {

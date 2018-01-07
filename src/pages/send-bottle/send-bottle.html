@@ -19,11 +19,11 @@
       <img src="assets/imgs/bottle.png" alt=""><span>每一个漂流瓶都是一个故事</span> 
     </div>
     <div class="send-bottle-header-close" (click)="closeModal()">
-      <span class="iconfont icon-delete_fill"></span>算了
+      <span class="iconfont icon-delete"></span>算了
     </div>
   </div>
   <div class="send-bottle-content">
     <textarea name="" id="" rows="6" [(ngModel)]="submitData.content" (ngModelChange)="checkContent($event)"></textarea>
   </div>
-  <button (click)="closeModal()" ion-button block [clear]="isContent" color="dark" [disabled]="isContent">{{submitBtnText}}</button>
+  <button (click)="submit()" ion-button block [clear]="isContent" color="dark" [disabled]="isContent">{{submitBtnText}}</button>
 </ion-content>

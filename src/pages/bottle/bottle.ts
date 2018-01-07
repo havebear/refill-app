@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController } from 'ionic-angular';
+import { NavController, ModalController, LoadingController } from 'ionic-angular';
 import { MyBottlePage } from '../my-bottle/my-bottle'
 import { SendBottlePage } from '../send-bottle/send-bottle';
 import { Modal } from 'ionic-angular/components/modal/modal';
@@ -17,9 +17,12 @@ export class BottlePage {
 
   constructor(
     public navCtrl: NavController,
-    public modalCtrl: ModalController) {
+    public modalCtrl: ModalController,
+    public loadingCtrl: LoadingController) {
 
   }
+
+  
 
   openSendBottleModal() {
     let mdoal = this.modalCtrl.create(SendBottlePage);
