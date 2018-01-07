@@ -26,10 +26,12 @@
     </ion-item>
 
   </ion-list>
-  <div (click)="regist()">注册新用户</div>
-  <div>忘记密码</div>
+  <div class="login-operate">
+    <span (click)="regist()">注册新用户</span>
+    <span>忘记密码</span>
+  </div>
 
-  <div padding>
+  <div>
     <button (click)="onLogin()" ion-button color="primary" block>登录</button>
   </div>
 </ion-content>

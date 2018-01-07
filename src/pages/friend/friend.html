@@ -11,7 +11,7 @@
     <ion-item-sliding>
       <ion-item (click)="toChatRoom()">
         <ion-avatar item-start>
-          <img src="assets/imgs/avatar.jpg">
+          <ion-img src="assets/imgs/avatar.jpg"></ion-img>
         </ion-avatar>
         <h2>狗蛋</h2>
         <p>上次你说的忘记了？</p>
@@ -39,24 +39,24 @@
       </ion-item-options>
     </ion-item-sliding>
     <ion-item-sliding>
-        <ion-item (click)="toChatRoom()">
-          <ion-avatar item-start>
-            <img src="assets/imgs/avatar.jpg">
-          </ion-avatar>
-          <h2>二狗</h2>
-          <p>把你的那个啥，发我一下</p>
-          <ion-note item-end>12:43 pm</ion-note>
-        </ion-item>
-        <ion-item-options side="right">
-          <button ion-button color="primary">
-            <ion-icon name="text"></ion-icon>
-            信息
-          </button>
-          <button ion-button color="primary">
-            <ion-icon name="mail"></ion-icon>
-            删除
-          </button>
-        </ion-item-options>
-      </ion-item-sliding>
+      <ion-item (click)="toChatRoom()">
+        <ion-avatar item-start>
+          <ion-img src="assets/imgs/avatar.jpg"></ion-img>
+        </ion-avatar>
+        <h2>二狗</h2>
+        <p>把你的那个啥，发我一下</p>
+        <ion-note item-end>12:43 pm</ion-note>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="primary">
+          <ion-icon name="text"></ion-icon>
+          信息
+        </button>
+        <button ion-button color="primary">
+          <ion-icon name="mail"></ion-icon>
+          删除
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
 </ion-content>

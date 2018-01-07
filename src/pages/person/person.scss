@@ -1,3 +1,92 @@
-page-about {
-
+page-person {
+  .person-user {
+    position: relative;
+    text-align: center;
+  }
+  .person-user-bg {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 23rem;
+    top: 0;
+    left: 0; // background-color: #0280e7;
+    // background: linear-gradient(135deg, #263985, #0280e7);
+    background: url('../assets/imgs/home_bg_2.jpeg') no-repeat center;
+  }
+  .person-user-info {
+    margin-top: 6rem;
+    padding: 1.5rem;
+    padding-top: 0;
+    border-radius: 6px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    ion-grid {
+      padding: 0;
+      padding-top: 1rem;
+    }
+    ion-row {
+      border-radius: 6px;
+    }
+    ion-col {
+      padding-top: 1.2rem;
+      span {
+        font-size: 1.6rem;
+        color: #27263e;
+      }
+      p {
+        margin: 0.8rem 0;
+        font-size: 1.2rem;
+        color: #999;
+      }
+    }
+  }
+  .person-user-info-avatar {
+    text-align: center;
+    img {
+      width: 8rem;
+      height: 8rem;
+      margin-top: -4rem;
+      border-radius: 50%;
+      box-shadow: 0 0 1px 0 #0280e7;
+      background-color: #fff;
+    }
+  }
+  .person-user-info-name {
+    padding: 0.5rem;
+    font-size: 1.8rem;
+    color: #27263e;
+  }
+  .person-user-info-label {
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    color: #27263e;
+    span {
+      margin: 0 5px;
+    }
+    ion-icon {
+      margin: 0 5px;
+      font-weight: 1.2rem;
+      &.woman {
+        color: #fd064d
+      }
+      &.man {
+        color: #0280e7;
+      }
+    }
+  }
+  
+  .person-user-info-nologin {
+    padding: 2rem 0;
+    font-size: 1.6rem;
+    text-align: center;
+    img {
+      width: 8rem;
+      height: 8rem;
+      margin-bottom: 2rem;
+    }
+    .iconfont {
+      font-size: 2rem;
+    }
+  }
 }

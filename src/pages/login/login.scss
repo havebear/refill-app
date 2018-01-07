@@ -1,3 +1,13 @@
 page-login {
-
+  .login-operate {
+    overflow: hidden;
+    margin-bottom: 1rem;
+    span {
+      float: left;
+      display: block;
+      width: 50%;
+      line-height: 4rem;
+      text-align: center;
+    }
+  }
 }

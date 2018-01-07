@@ -3,9 +3,63 @@
     <ion-title>
       我的
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="settings"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
+  <!-- <ion-toolbar>
+    <ion-title>Subheader</ion-title>
+  </ion-toolbar> -->
+
 </ion-header>
 
-<ion-content padding>
-  <button ion-button (click)="login()">登录</button>
+<ion-content>
+  <!-- 登录显示页面 -->
+  <div *ngIf="true" class="person-user" padding>
+    <div class="person-user-bg"></div>
+    <div class="person-user-info">
+      <div class="person-user-info-avatar">
+        <img src="assets/imgs/bottle.png" alt="">
+      </div>
+      <div class="person-user-info-name">
+        <span>我是昵称</span>
+      </div>
+      <div class="person-user-info-label">
+        <ion-icon name="md-male" class="man"></ion-icon>
+        <span>|</span>
+        <span>616749285@qq.com</span>
+      </div>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <span>10</span>
+            <p>好友</p>
+          </ion-col>
+          <ion-col>
+            <span>22</span>
+            <p>捡的</p>
+          </ion-col>
+          <ion-col>
+            <span>0</span>
+            <p>扔的</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <div class="person-user-info-navs">
+        <div class="person-user-info-nav">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 未登录显示页面 -->
+  <div *ngIf="false" class="person-user-info-nologin" (click)="login()">
+    <div>
+      <img src="assets/imgs/bottle.png" alt="">
+    </div>
+    <span>前往登录</span>
+    <span class="iconfont icon-enter"></span>
+  </div>
 </ion-content>
