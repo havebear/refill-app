@@ -40,7 +40,19 @@ $colors: (
   light:      #f4f4f4,
   dark:       #222,
 
-  bg-navbar:  #fff
+  bg-navbar:  #fff,
+  main:       #1296db,
+  text-l:     #333,
+  text-ll:    #666,
+  text-lll:   #999,
+  text-ligh:  #afafaf,
+  border:     #eee,
+);
+
+$sizes: (
+  text-l:     1.6rem,
+  text-ll:    1.4rem,
+  text-lll:   1.2rem,
 );
 
 
