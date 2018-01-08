@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { RegistPage } from '../regist/regist';
-import { Community } from '../../provider/community'
+import { UserInfo,UserInfoService } from '../../provider/userinfo.service'
 import { compareDates } from 'ionic-angular/util/datetime-util';
 /**
  * Generated class for the LoginPage page.
@@ -25,7 +25,7 @@ export class LoginPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public toastCtrl: ToastController,
-    private com:Community) {
+    private userService:UserInfoService) {
   }
 
   ionViewDidLoad() {
@@ -46,13 +46,13 @@ export class LoginPage {
       alert("用户名或者密码不能为空");
       return;
     }
-    this.com.login({ username: this.username, password: this.password }).then(
+    this.userService.login({ username: this.username, password: this.password }).then(
       () => {
         alert("登录成功");
         this.clickFlag = false;
       },
       (reason) => {
-        alert(reason.description);
+        alert("登录失败");
         this.clickFlag = false;
       });
 

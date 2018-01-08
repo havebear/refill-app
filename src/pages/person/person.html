@@ -55,7 +55,7 @@
   </div>
 
   <!-- 未登录显示页面 -->
-  <div *ngIf="isLogin" class="person-user-info-nologin" (click)="login()">
+  <div *ngIf="!isLogin" class="person-user-info-nologin" (click)="login()">
     <div>
       <img src="assets/imgs/bottle.png" alt="">
     </div>

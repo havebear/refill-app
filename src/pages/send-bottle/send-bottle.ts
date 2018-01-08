@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, ToastController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
-import {Community} from '../../provider/community'
+import {BottleService} from '../../provider/bottle.service'
 /**
  * Generated class for the SendBottlePage page.
  *
@@ -30,7 +30,7 @@ export class SendBottlePage {
     public viewCtrl: ViewController,
     public http: HttpClient,
     public toastCtrl: ToastController,
-    private com:Community) {
+    private bottleService:BottleService) {
   }
 
   /**
@@ -47,7 +47,7 @@ export class SendBottlePage {
    * @memberof SendBottlePage
    */
   submit() {
-    this.com.thowBottle( { content: this.submitData.content }).then(()=>{
+    this.bottleService.thowBottle( { content: this.submitData.content }).then(()=>{
       this.presentToast('扔出去啦~');
       this.closeModal();
     },

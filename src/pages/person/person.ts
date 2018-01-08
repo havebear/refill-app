@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 import { LoginPage } from '../login/login'
 
 import {Community} from '../../provider/community'
-import {UserInfo} from '../../provider/userinfo.service'
+import {UserInfoService,UserInfo} from '../../provider/userinfo.service'
 import { OnInit } from '@angular/core';
 
 
@@ -18,16 +18,18 @@ export class PersonPage  implements OnInit{
   isLogin:boolean;
 
   ngOnInit(): void {
-    this.com.getMyinfo().then((user:UserInfo)=>{
+    this.userInfoService.getMyinfo().then((user:UserInfo)=>{
       this.userinfo = user;
       this.isLogin = true;
     },(error)=>{
       alert(error);
       this.isLogin = false;
     });
+    
   }
 
-  constructor(public navCtrl: NavController,private com:Community) {
+  constructor(public navCtrl: NavController,private userInfoService:UserInfoService) {
+    this.isLogin = false;
   }
 
   login() {

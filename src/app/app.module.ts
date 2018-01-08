@@ -20,6 +20,9 @@ import { SendBottlePage } from '../pages/send-bottle/send-bottle';
 
 import  LocalStorageService from '../provider/local-storage.service'
 import {Community} from '../provider/community'
+import {UserInfoService} from '../provider/userinfo.service'
+import {BottleService} from '../provider/bottle.service'
+import {FriendService} from '../provider/friend.service'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -64,6 +67,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     { provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true },
     LocalStorageService,
     Community,
+    UserInfoService,
+    FriendService,
+    BottleService,
+
   ]
 })
 export class AppModule { }

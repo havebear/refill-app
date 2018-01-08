@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {Community} from '../../provider/community'
+import {UserInfoService} from '../../provider/userinfo.service'
 import { compareDates } from 'ionic-angular/util/datetime-util';
 
 /**
@@ -19,7 +19,7 @@ export class RegistPage {
   username:string="";
   password:string="";
   clickFlag:boolean = false;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private com:Community) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private userinfo:UserInfoService) {
   }
 
   ionViewDidLoad() {
@@ -36,11 +36,11 @@ export class RegistPage {
       alert("用户名或者密码不能为空");
       return;
     }
-    this.com.register({username:this.username,password:this.password}).then(()=>{
+    this.userinfo.register({username:this.username,password:this.password}).then(()=>{
     alert("注册成功");
     this.clickFlag = false;
     },(reason)=>{
-      alert(reason);
+      alert("注册失败");
       this.clickFlag = false;
     });
   }
