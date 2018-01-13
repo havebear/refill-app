@@ -28,7 +28,7 @@ page-send-bottle {
     margin-bottom: 20px;
     background-color: #fff; // box-shadow: 0 4px 16px #999;
     border: 1px dashed #333;
-    border-radius: 6px;
+    border-radius: map-get($map: $sizes, $key: radius);
     textarea {
       width: 100%;
       background-color: transparent;

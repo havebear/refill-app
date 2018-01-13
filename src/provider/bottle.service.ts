@@ -17,7 +17,7 @@ export class Bottle{
 @Injectable()
 export class BottleService{
 
-    userBottleApi:string = "/driftingbottles";
+    userBottleApi:string = "/drifting-bottles";
     constructor(private http:HttpClient,private storage:LocalStorageService) {}
 
     thowBottle(content){

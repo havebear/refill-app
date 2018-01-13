@@ -39,7 +39,7 @@ export class SendBottlePage {
    */
   checkContent(e) {
     this.isContent = e.length <= 0 ? true : false;
-    this.submitData.content = '我是转换后内容'
+    // this.submitData.content = '我是转换后内容'
   }
 
 

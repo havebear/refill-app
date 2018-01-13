@@ -1,61 +1,142 @@
 <ion-header>
   <ion-navbar color="bg-navbar">
     <ion-title>笔芯</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openSendBottleModal()">
+        <ion-icon name="ios-add-circle-outline"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-fab right bottom>
-    <button ion-fab (click)="openSendBottleModal()">
-      <ion-icon name="add"></ion-icon>
-    </button>
-  </ion-fab>
+<ion-content>
 
-  <div class="main">
-    <div class="main-bottles">
-      <ion-chip>
-        <ion-icon name="pin"></ion-icon>
-        <ion-label>hi呀,大兄弟</ion-label>
-      </ion-chip>
-      <ion-chip>
-        <ion-icon name="heart" color="dark"></ion-icon>
-        <ion-label>有人吗,没人我等下再来问问</ion-label>
-      </ion-chip>
-      <!-- <div class="main-bottle">
-        <div class="main-bottle-content" padding>
-          我是漂流瓶内容
-        </div>
-        <div></div>
-      </div> -->
-    </div>
+  <div class="home-pickbottle" padding>
+    <button ion-button round color="main" (click)="pickUpBottle()">
+      <img src="assets/imgs/pick.png" alt=""> 捞一个</button>
   </div>
 
-  <!-- 基础层 -->
-  <!-- <div class="home-main">
-    
-    <div class="home-main-top">
-      
-    </div>
-    <div class="home-main-bottom">
-      <ion-grid>
-        <ion-row>
-          <ion-col (click)="openSendBottleModal()">
-            <span class="iconfont icon-brush"></span>
-            <span>扔瓶子</span>
-          </ion-col>
-          <ion-col (click)="pickUpBottle()">
-            <span class="iconfont icon-select"></span>
-            <span>捞瓶子</span>
-          </ion-col>
-          <ion-col (click)="toMyBottle()">
-            <span class="iconfont icon-mail"></span>
-            <span>瓶子</span>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>
-  </div> -->
+  <div class="home-tab-nav">
+    <div [ngClass]="{'active' : tabIndex == 0}" (click)="checkTab(0)">捞的瓶子</div>
+    <div [ngClass]="{'active' : tabIndex == 1}" (click)="checkTab(1)">扔的瓶子</div>
+  </div>
+
+  <div class="home-tab-content" [ngSwitch]="tabIndex">
+    <ion-list no-lines *ngSwitchCase="0">
+      <ion-item-sliding>
+        <ion-item (click)="toChatRoom()">
+          <ion-avatar item-start>
+            <ion-img src="assets/imgs/bottle.png"></ion-img>
+          </ion-avatar>
+          <h2>来自
+            <span>陈杰</span>的漂流瓶</h2>
+          <p>你还好吗？</p>
+          <ion-note item-end>今天</ion-note>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="primary">
+            <ion-icon name="text"></ion-icon>
+            信息
+          </button>
+          <button ion-button color="primary">
+            <ion-icon name="mail"></ion-icon>
+            删除
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+      <ion-item-sliding>
+        <ion-item (click)="toChatRoom()">
+          <ion-avatar item-start>
+            <ion-img src="assets/imgs/bottle.png"></ion-img>
+          </ion-avatar>
+          <h2>来自
+            <span>米饭</span>的漂流瓶</h2>
+          <p>很高心认识你，胖友</p>
+          <ion-note item-end>昨天</ion-note>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="primary">
+            <ion-icon name="text"></ion-icon>
+            信息
+          </button>
+          <button ion-button color="primary">
+            <ion-icon name="mail"></ion-icon>
+            删除
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+      <ion-item-sliding>
+        <ion-item (click)="toChatRoom()">
+          <ion-avatar item-start>
+            <ion-img src="assets/imgs/bottle.png"></ion-img>
+          </ion-avatar>
+          <h2>来自
+            <span>超神、幻想</span>的漂流瓶</h2>
+          <p>Nice to meet you，大兄弟</p>
+          <ion-note item-end>1月11日</ion-note>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="primary">
+            <ion-icon name="text"></ion-icon>
+            信息
+          </button>
+          <button ion-button color="primary">
+            <ion-icon name="mail"></ion-icon>
+            删除
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+
+    <ion-list no-lines *ngSwitchCase="1">
+      <ion-item-sliding>
+        <ion-item (click)="toChatRoom()">
+          <ion-avatar item-start>
+            <ion-img src="assets/imgs/bottle.png"></ion-img>
+          </ion-avatar>
+          <h2>来自
+            <span>陈杰</span>的漂流瓶</h2>
+          <p>你还好吗？</p>
+          <ion-note item-end>今天</ion-note>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="primary">
+            <ion-icon name="mail"></ion-icon>
+            删除
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+
   <!-- 捞瓶子弹出层 -->
-  <div *ngIf="isPickUp" class="home-layer">
+  <div *ngIf="isPickUp" class="home-layer" padding>
+    <!-- <div class="home-layer" padding> -->
+    <div class="home-layer-box">
+      <div class="home-layer-box-avatar">
+        <img src="assets/imgs/bottle.png" alt="">
+      </div>
+      <div class="home-layer-box-user">
+        捞到了来自
+        <span>何二狗</span>的漂流瓶
+      </div>
+      <div class="home-layer-box-content">
+        我是漂流瓶内容，明天考试，疯狂奶自己一波，必过。
+      </div>
+      <div class="home-layer-box-buttons">
+        <button ion-button round color="light" (click)="pickUpBottle()">
+          <!-- <img src="assets/imgs/sea.png" alt="">  -->
+          扔回海里</button>
+        <div></div>
+        <button ion-button round color="main" (click)="toChatRoom()">
+          <!-- <img src="assets/imgs/look.png" alt="">  -->
+          打开看看</button>
+      </div>
+    </div>
+    <div class="home-layer-close" (click)="closeLayer()">
+      <span class="iconfont icon-delete"></span>
+      <p>关闭</p>
+    </div>
+    <div class="home-layer-mask"></div>
   </div>
 </ion-content>

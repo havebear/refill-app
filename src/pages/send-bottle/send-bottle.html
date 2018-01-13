@@ -23,7 +23,7 @@
     </div>
   </div>
   <div class="send-bottle-content">
-    <textarea name="" id="" rows="6" [(ngModel)]="submitData.content" (ngModelChange)="checkContent($event)"></textarea>
+    <textarea name="" id="" rows="6" maxlength="140" placeholder="1~140字" [(ngModel)]="submitData.content" (ngModelChange)="checkContent($event)"></textarea>
   </div>
-  <button (click)="submit()" ion-button block [clear]="isContent" color="dark" [disabled]="isContent">{{submitBtnText}}</button>
+  <button (click)="submit()" ion-button block [clear]="isContent" round color="main" [disabled]="isContent">{{submitBtnText}}</button>
 </ion-content>

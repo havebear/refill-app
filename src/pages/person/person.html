@@ -16,7 +16,6 @@
 </ion-header>
 
 <ion-content>
-  <!-- 登录显示页面 -->
   <div *ngIf="isLogin" class="person-user" padding>
     <div class="person-user-bg"></div>
     <div class="person-user-info">
@@ -24,12 +23,12 @@
         <img src="assets/imgs/bottle.png" alt="">
       </div>
       <div class="person-user-info-name">
-        <span>{{userinfo.username}}</span>
+        <span>{{userinfo.username || '昵称未设置'}}</span>
       </div>
       <div class="person-user-info-label">
         <ion-icon name="md-male" class="man"></ion-icon>
         <span>|</span>
-        <span>{{userinfo.email}}</span>
+        <span>{{userinfo.email || '未绑定邮箱'}}</span>
       </div>
       <ion-grid>
         <ion-row>
@@ -55,11 +54,11 @@
   </div>
 
   <!-- 未登录显示页面 -->
-  <div *ngIf="!isLogin" class="person-user-info-nologin" (click)="login()">
+  <!-- <div *ngIf="!isLogin" class="person-user-info-nologin" (click)="login()">
     <div>
       <img src="assets/imgs/bottle.png" alt="">
     </div>
     <span>前往登录</span>
     <span class="iconfont icon-enter"></span>
-  </div>
+  </div> -->
 </ion-content>

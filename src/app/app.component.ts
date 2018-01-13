@@ -23,7 +23,9 @@ export class MyApp {
       this.userInfoService.getMyinfo().then((user: UserInfo) => {
         this.userinfo = user;
         this.rootPage = TabsPage;
-      })
+      }).catch(err => {
+        console.log('获取失败');
+      });
     }
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

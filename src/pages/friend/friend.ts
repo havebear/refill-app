@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-import { ChatRoomPage } from '../chat-room/chat-room'
+import { ChatRoomPage } from '../chat-room/chat-room';
 
 @Component({
   selector: 'page-friend',
