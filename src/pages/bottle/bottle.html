@@ -5,33 +5,56 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-fab right bottom>
+    <button ion-fab (click)="openSendBottleModal()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <div class="main">
+    <div class="main-bottles">
+      <ion-chip>
+        <ion-icon name="pin"></ion-icon>
+        <ion-label>hi呀,大兄弟</ion-label>
+      </ion-chip>
+      <ion-chip>
+        <ion-icon name="heart" color="dark"></ion-icon>
+        <ion-label>有人吗,没人我等下再来问问</ion-label>
+      </ion-chip>
+      <!-- <div class="main-bottle">
+        <div class="main-bottle-content" padding>
+          我是漂流瓶内容
+        </div>
+        <div></div>
+      </div> -->
+    </div>
+  </div>
+
   <!-- 基础层 -->
-  <div class="home-main">
+  <!-- <div class="home-main">
+    
     <div class="home-main-top">
-      <!-- <img class="home-main-top-bg" src="../../assets/imgs/home_bg.jpeg" alt=""> -->
+      
     </div>
     <div class="home-main-bottom">
       <ion-grid>
         <ion-row>
           <ion-col (click)="openSendBottleModal()">
-            <!-- <ion-icon ios="logo-angular" md="logo-android"></ion-icon> -->
             <span class="iconfont icon-brush"></span>
             <span>扔瓶子</span>
           </ion-col>
           <ion-col (click)="pickUpBottle()">
-            <!-- <ion-icon ios="logo-google" md="logo-android"></ion-icon> -->
             <span class="iconfont icon-select"></span>
             <span>捞瓶子</span>
           </ion-col>
           <ion-col (click)="toMyBottle()">
-            <!-- <ion-icon ios="logo-github" md="logo-android"></ion-icon> -->
             <span class="iconfont icon-mail"></span>
             <span>瓶子</span>
           </ion-col>
         </ion-row>
       </ion-grid>
     </div>
-  </div>
+  </div> -->
   <!-- 捞瓶子弹出层 -->
   <div *ngIf="isPickUp" class="home-layer">
   </div>

@@ -18,11 +18,12 @@ import { MyBottlePage } from '../pages/my-bottle/my-bottle';
 import { ChatRoomPage } from '../pages/chat-room/chat-room';
 import { SendBottlePage } from '../pages/send-bottle/send-bottle';
 
-import  LocalStorageService from '../provider/local-storage.service'
-import {Community} from '../provider/community'
-import {UserInfoService} from '../provider/userinfo.service'
-import {BottleService} from '../provider/bottle.service'
-import {FriendService} from '../provider/friend.service'
+import LocalStorageService from '../provider/local-storage.service';
+import { Community } from '../provider/community';
+import { UserInfoService } from '../provider/userinfo.service';
+import { BottleService } from '../provider/bottle.service';
+import { FriendService } from '../provider/friend.service';
+import VerifyService from '../provider/verify-service'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -70,7 +71,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     UserInfoService,
     FriendService,
     BottleService,
-
+    VerifyService,
   ]
 })
 export class AppModule { }

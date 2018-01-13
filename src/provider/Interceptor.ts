@@ -10,7 +10,10 @@ export class Interceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     console.log('已经被拦截处理了');
+    // 公网
     const baseUrl = 'http://114.67.133.63:8081';
+    // 内网
+    // const baseUrl = 'http://192.168.0.104';
     const url: string = baseUrl + req.url;
     let token: string = '';
     console.log(url);
