@@ -32,6 +32,6 @@
   </div>
 
   <div>
-    <button (click)="onLogin()" ion-button color="primary" block>登录</button>
+    <button (click)="onLogin()" ion-button color="primary" [disabled]="clickFlag" block>{{loginBtnText}}</button>
   </div>
 </ion-content>

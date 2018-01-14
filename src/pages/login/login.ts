@@ -21,6 +21,7 @@ export class LoginPage {
 
   username: string = "";
   password: string = "";
+  loginBtnText: string = "登录";
 
   clickFlag: boolean = false;
   constructor(
@@ -43,11 +44,12 @@ export class LoginPage {
     if (this.clickFlag == true) {
       return;
     }
-    this.clickFlag = true;
     if (!this.username || !this.password) {
       this.toast("用户名或者密码不能为空");
       return;
     }
+    this.clickFlag = true;
+    this.loginBtnText = "登录中";
     this.userService.login({ username: this.username, password: this.password }).then(
       res => {
         console.log(res);
@@ -59,7 +61,6 @@ export class LoginPage {
         this.clickFlag = false;
         this.toast('登录失败，请检查网络原因');
       });
-
   }
 
   /**

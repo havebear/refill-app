@@ -48,7 +48,7 @@ export class SendBottlePage {
    * @memberof SendBottlePage
    */
   submit() {
-    this.bottleService.thowBottle( { content: this.submitData.content }).then(()=>{
+    this.bottleService.sendBottle( { content: this.submitData.content }).then(()=>{
       this.presentToast('扔出去啦~');
       this.closeModal();
     },

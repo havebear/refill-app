@@ -28,6 +28,6 @@
   </ion-list>
 
   <div>
-    <button (click)="onRegister()" ion-button color="primary" block>注册</button>
+    <button (click)="onRegister()" ion-button color="primary" [disabled]="clickFlag" block>{{registBtnText}}</button>
   </div>
 </ion-content>

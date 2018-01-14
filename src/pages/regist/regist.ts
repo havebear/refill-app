@@ -20,6 +20,7 @@ import { LoginPage } from '../login/login';
 export class RegistPage {
   username: string = "";
   password: string = "";
+  registBtnText: string = "注册";
   clickFlag: boolean = false;
   constructor(public navCtrl: NavController, public navParams: NavParams, private userinfo: UserInfoService, private toastCtrl: ToastController, private verifyService: VerifyService) {
   }
@@ -29,7 +30,6 @@ export class RegistPage {
   }
 
   onRegister() {
-    console.log(this.clickFlag);
     if (this.clickFlag) {
       return;
     }
@@ -44,12 +44,12 @@ export class RegistPage {
     if (!this.verifyService.password(this.password)) {
       this.toast('密码由6-16位组成');
       return;
-    } 
+    }
     this.clickFlag = true;
+    this.registBtnText = "注册中";
     this.userinfo.register({ username: this.username, password: this.password })
       .then(res => {
         this.clickFlag = false;
-        console.log(res);
         this.toast('注册成功');
         this.navCtrl.pop();
       }).catch(err => {
