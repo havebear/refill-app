@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, ModalController, LoadingController } from 'ionic-angular';
+import { NavController, ModalController, LoadingController, AlertController } from 'ionic-angular';
 import { MyBottlePage } from '../my-bottle/my-bottle'
 import { SendBottlePage } from '../send-bottle/send-bottle';
 import { Modal } from 'ionic-angular/components/modal/modal';
@@ -22,15 +22,19 @@ export class BottlePage implements OnInit {
   pageSize: number = 10;
   isNoReceiversBottles: Boolean = false;
   is
-  receiversBottles = [];
+  receiversBottles: any;
+  sendBottles: any;
+  bottle: any;
 
   ngOnInit(): void {
-    // 获取捞的瓶子
+    // 获取瓶子列表
     this.bottleService.getReceiversBottles(this.pageIndex, this.pageSize)
       .then(res => {
         if (!res) this.isNoReceiversBottles = true;
-        // this.receiversBottles = res;
-        console.log(res);
+        this.receiversBottles = [res];
+        return this.bottleService.getSendBottles(this.pageIndex, this.pageSize);
+      }).then(res => {
+        this.sendBottles = res;
       }).catch(err => {
         console.log(err);
       })
@@ -40,22 +44,33 @@ export class BottlePage implements OnInit {
     public navCtrl: NavController,
     public modalCtrl: ModalController,
     public loadingCtrl: LoadingController,
-    private bottleService: BottleService) {
+    private bottleService: BottleService,
+    private alertCtrl: AlertController) {
 
   }
 
+  /**
+   * 捞瓶子
+   */
   pickUpBottle() {
     let loading = this.loadingCtrl.create({
-      content: "捞啊捞...",
-      duration: 3000
+      content: "捞啊捞..."
     })
     loading.present();
-    setTimeout(() => {
+    this.bottleService.getBottle().then(res => {
+      this.bottle = res;
+      loading.dismiss();
       this.isPickUp = true;
-    }, 3000);
+    }).catch(err => {
+      console.log(err);
+      loading.dismiss();
+    })
   }
 
   closeLayer() {
+    this.bottleService.thorwBackBottle(this.bottle.id).then(res => {
+      console.log(res);
+    })
     this.isPickUp = false;
   }
 
@@ -71,5 +86,58 @@ export class BottlePage implements OnInit {
 
   checkTab(index) {
     this.tabIndex = index;
+  }
+
+  /**
+   * 
+   * @param item 查看瓶子完整内容
+   */
+  showBottleInfo(item) {
+    this.showAlert(item.content);
+  }
+
+  /**
+   * 捞瓶子 - 回复
+   */
+  replyBottle() {
+    this.bottleService.replyBottle(this.bottle.id).then(res => {
+      console.log(res);
+    })
+    this.navCtrl.push(ChatRoomPage);
+  }
+
+  /**
+   * 删除瓶子
+   * @param item 
+   */
+  deleteBottle(item) {
+    let confirm = this.alertCtrl.create({
+      title: '确认删除',
+      message: item.content,
+      buttons: [
+        {
+          text: '取消',
+          handler: () => {
+            console.log('取消');
+          }
+        },
+        {
+          text: '确定',
+          handler: () => {
+            console.log('确定');
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
+
+  showAlert(msg: string) {
+    let alert = this.alertCtrl.create({
+      title: '漂流瓶',
+      subTitle: msg,
+      buttons: ['OK']
+    });
+    alert.present();
   }
 }

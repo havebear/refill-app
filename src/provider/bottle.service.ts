@@ -27,6 +27,7 @@ export class BottleService {
     receiversBottlesApi: string = "/drifting-bottles/receivers";
     sendBottlesApi: string = "/drifting-bottles/senders";
     replyBottleApi: string = "/drifting-bottles/reply";
+    throwBackBottleApi: string = "/drifting-bottles/throw-back";
     constructor(private http: HttpClient, private storage: LocalStorageService) { }
 
     /**
@@ -107,7 +108,22 @@ export class BottleService {
      */
     replyBottle(id: number) {
         return new Promise((resolve, reject) => {
-            this.http.put(this.replyBottleApi, { path: `/${id}` })
+            this.http.put(`${this.replyBottleApi}/${id}`, { path: `` })
+            .toPromise().then(res => {
+                resolve(res);
+            }).catch(err => {
+                reject(err);
+            })
+        })
+    }
+
+/**
+     * 扔回海里
+     * @param id 
+     */
+    thorwBackBottle(id: number) {
+        return new Promise((resolve, reject) => {
+            this.http.put(this.throwBackBottleApi, { path: `/${id}` })
             .toPromise().then(res => {
                 resolve(res);
             }).catch(err => {

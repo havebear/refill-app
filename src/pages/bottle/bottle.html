@@ -22,6 +22,7 @@
   </div>
 
   <div class="home-tab-content" [ngSwitch]="tabIndex">
+    <!-- 捞的 -->
     <ion-list no-lines *ngSwitchCase="0">
       <ion-item-sliding>
         <ion-item (click)="toChatRoom()">
@@ -34,11 +35,11 @@
           <ion-note item-end>今天</ion-note>
         </ion-item>
         <ion-item-options side="right">
-          <button ion-button color="primary">
+          <button ion-button color="primary" (click)="showBottleInfo({content:'我是漂流瓶内容'})">
             <ion-icon name="text"></ion-icon>
             信息
           </button>
-          <button ion-button color="danger">
+          <button ion-button color="danger" (click)="deleteBottle({senderName:'龙傲天'})">
             <ion-icon name="mail"></ion-icon>
             删除
           </button>
@@ -55,11 +56,11 @@
           <ion-note item-end>昨天</ion-note>
         </ion-item>
         <ion-item-options side="right">
-          <button ion-button color="primary">
+          <button ion-button color="primary" (click)="showBottleInfo({content:'我是漂流瓶内容'})">
             <ion-icon name="text"></ion-icon>
             信息
           </button>
-          <button ion-button color="danger">
+          <button ion-button color="danger" (click)="deleteBottle({senderName:'龙傲天'})">
             <ion-icon name="mail"></ion-icon>
             删除
           </button>
@@ -76,11 +77,11 @@
           <ion-note item-end>1月11日</ion-note>
         </ion-item>
         <ion-item-options side="right">
-          <button ion-button color="primary">
+          <button ion-button color="primary" (click)="showBottleInfo({content:'我是漂流瓶内容'})">
             <ion-icon name="text"></ion-icon>
             信息
           </button>
-          <button ion-button color="danger">
+          <button ion-button color="danger" (click)="deleteBottle({senderName:'龙傲天'})">
             <ion-icon name="mail"></ion-icon>
             删除
           </button>
@@ -88,19 +89,20 @@
       </ion-item-sliding>
     </ion-list>
 
+    <!-- 扔的 -->
     <ion-list no-lines *ngSwitchCase="1">
-      <ion-item-sliding>
-        <ion-item (click)="toChatRoom()">
+      <ion-item-sliding *ngFor="let item of sendBottles">
+        <ion-item (click)="showBottleInfo(item)">
           <ion-avatar item-start>
             <ion-img src="assets/imgs/bottle.png"></ion-img>
           </ion-avatar>
-          <h2>来自
-            <span>陈杰</span>的漂流瓶</h2>
-          <p>你还好吗？</p>
+          <!-- <h2>来自 -->
+          <!-- <span>{{陈杰}}</span>的漂流瓶</h2> -->
+          <p>{{item.content}}</p>
           <ion-note item-end>今天</ion-note>
         </ion-item>
         <ion-item-options side="right">
-          <button ion-button color="danger">
+          <button ion-button color="danger" (click)="deleteBottle(item)">
             <ion-icon name="mail"></ion-icon>
             删除
           </button>
@@ -117,18 +119,18 @@
         <img src="assets/imgs/bottle.png" alt="">
       </div>
       <div class="home-layer-box-user">
-        捞到了来自
-        <span>何二狗</span>的漂流瓶
+        捞到了
+        <span *ngIf="bottle.senderName">来自{{bottle.senderName}}的</span>漂流瓶
       </div>
       <div class="home-layer-box-content">
-        我是漂流瓶内容，明天考试，疯狂奶自己一波，必过。
+        {{bottle.content}}
       </div>
       <div class="home-layer-box-buttons">
-        <button ion-button round color="light" (click)="pickUpBottle()">
+        <button ion-button round color="light" (click)="closeLayer()">
           <!-- <img src="assets/imgs/sea.png" alt="">  -->
           扔回海里</button>
         <div></div>
-        <button ion-button round color="main" (click)="toChatRoom()">
+        <button ion-button round color="main" (click)="replyBottle()">
           <!-- <img src="assets/imgs/look.png" alt="">  -->
           打开看看</button>
       </div>
